@@ -21,6 +21,7 @@ chmod +x start-frontend.sh
 ## Notes
 
 - This app is a **basic prototype** with minimal functionality.
+- Data is stored in JSON and managed in-memory (no database is used).
 - **No user authentication** is implemented.
 - You can **upvote** or **delete** any feedback.
 - Designed for demonstration purposes only.

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { submitData } from "../utils/submit";
+import { submitData, validateField } from "../utils/submit";
 import styles from "./Feedback.module.css";
 import Dialog from "../components/Dialog";
 
@@ -10,7 +10,7 @@ export default function FeedbackForm() {
         email: "",
         message: "",
     });
-
+    const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showDialog, setShowDialog] = useState(false);
     const [dialogConfig, setDialogConfig] = useState({
@@ -19,12 +19,28 @@ export default function FeedbackForm() {
         type: "success",
     });
 
+    const handleBlur = (e) => {
+        const { name, value } = e.target;
+        const error = validateField(name, value);
+        setErrors(prev => ({ ...prev, [name]: error }));
+    };
+
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
+        setErrors(prev => ({ ...prev, [e.target.name]: "" }));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        let newErrors = {};
+        Object.keys(data).forEach(key => {
+            const error = validateField(key, data[key]);
+            if (error) newErrors[key] = error;
+        });
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
         setIsSubmitting(true);
         await submitData(e, data, setData, setDialogConfig);
         setData({ name: "", email: "", message: "" });
@@ -51,11 +67,13 @@ export default function FeedbackForm() {
                             name="name"
                             value={data.name}
                             onChange={handleChange}
+                            onBlur={handleBlur}
                             className={styles.input}
                             placeholder="Enter your full name"
                             required
                             disabled={isSubmitting}
                         />
+                        {errors.name && <p className={styles.error}>{errors.name}</p>}
                     </div>
 
                     <div className={styles.formGroup}>
@@ -68,11 +86,13 @@ export default function FeedbackForm() {
                             name="email"
                             value={data.email}
                             onChange={handleChange}
+                            onBlur={handleBlur}
                             className={styles.input}
                             placeholder="Enter your email address"
                             required
                             disabled={isSubmitting}
                         />
+                        {errors.email && <p className={styles.error}>{errors.email}</p>}
                     </div>
 
                     <div className={styles.formGroup}>
@@ -84,12 +104,14 @@ export default function FeedbackForm() {
                             name="message"
                             value={data.message}
                             onChange={handleChange}
+                            onBlur={handleBlur}
                             className={styles.textarea}
                             placeholder="Please share your detailed feedback..."
                             rows={6}
                             required
                             disabled={isSubmitting}
                         />
+                        {errors.message && <p className={styles.error}>{errors.message}</p>}
                     </div>
 
                     <button

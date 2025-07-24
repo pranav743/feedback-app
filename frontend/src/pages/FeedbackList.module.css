@@ -111,6 +111,8 @@
 
 .cardBody {
   margin-bottom: 1.5rem;
+  height: 180px;
+  overflow-y: auto;
 }
 
 .message {

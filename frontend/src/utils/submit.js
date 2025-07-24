@@ -73,4 +73,17 @@ const upvoteFeedback = async (id, count, setDialogConfig) => {
     }
 };
 
-export { submitData, fetchFeedbacks, deleteFeedback, upvoteFeedback };
+const validateField = (name, value) => {
+    let error = "";
+    if (!value.trim()) {
+        error = "This field is required.";
+    } else if (name === "email") {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+            error = "Please enter a valid email address.";
+        }
+    }
+    return error;
+};
+
+export { submitData, fetchFeedbacks, deleteFeedback, upvoteFeedback, validateField };
