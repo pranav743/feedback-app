@@ -1,5 +1,4 @@
-
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = import.meta.env.VITE_SERVER_URL + '/api' || "http://localhost:3000/api";
 import axios from 'axios';
 
 const submitData = async (e, data, setData, setDialogConfig) => {
