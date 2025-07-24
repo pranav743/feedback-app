@@ -24,7 +24,10 @@ export class Feedbacks {
     }
 
     public getAllFeedbacks(): FeedbackData[] {
-        return Array.from(this.feedbacks.values());
+        return Array.from(this.feedbacks.entries()).map(([id, feedback]) => ({
+            id,
+            ...feedback
+        }));
     }
 
     private async loadFeedbacks() {
@@ -43,6 +46,7 @@ export class Feedbacks {
 
     public async createFeedback(feedbackData: FeedbackData): Promise<FeedbackData> {
         const id = Date.now().toString();
+        feedbackData.votes = 0;
         this.feedbacks.set(id, feedbackData);
         await this.saveFeedbacks();
         return feedbackData;
@@ -55,6 +59,7 @@ export class Feedbacks {
         }
         feedback.votes += value;
         this.feedbacks.set(id, feedback);
+        await this.saveFeedbacks();
         return id;
     }
 

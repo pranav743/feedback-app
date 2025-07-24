@@ -1,20 +1,14 @@
 {
-    "1000": {
-        "name": "John Doe",
-        "email": "john.doe@example.com",
-        "message": "Great service!",
-        "votes": 10
-    },
     "2": {
         "name": "Jane Smith",
         "email": "jane.smith@example.com",
         "message": "Could be improved.",
-        "votes": 5
+        "votes": 11
     },
     "3": {
         "name": "Alice Johnson",
         "email": "alice.johnson@example.com",
         "message": "Loved the experience!",
-        "votes": 15
+        "votes": 7
     }
 }

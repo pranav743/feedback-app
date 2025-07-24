@@ -26,6 +26,7 @@ export const getFeedback = async (req: Request, res: Response) => {
 export const voteFeedback = async (req: Request, res: Response) => {
     const { id } = req.params;
     const { value } = req.body;  // +1 or -1
+    console.log(`Voting on feedback with id: ${id}, value: ${value}`);
     const voteType = value > 0 ? 'upvote' : 'downvote';
     
     try {

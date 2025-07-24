@@ -1,0 +1,40 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #1976d2;
+  flex-wrap: wrap;
+  margin-bottom: 5vh;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #bbdefb;
+}
+
+@media screen and (max-width: 600px) {
+  .links {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
