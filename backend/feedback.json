@@ -1,14 +1,14 @@
 {
     "2": {
-        "name": "Jane Smith",
-        "email": "jane.smith@example.com",
-        "message": "Could be improved.",
-        "votes": 11
+        "name": "Pranav Patil",
+        "email": "pranav07@somaiya.edu",
+        "message": "This is a demo feedback APP. There is no User Authentication or session management in this app. You can upvote a feedback any number of times. You can also delete anyone's feedback. There is a lot of scope for Improvement. Since this is a broad topic, I have implemented a basic version of the app. I hope you like it.",
+        "votes": 2
     },
     "3": {
         "name": "Alice Johnson",
         "email": "alice.johnson@example.com",
-        "message": "Loved the experience!",
-        "votes": 7
+        "message": "Yaay, great job! I really like the design and functionality of this feedback app. It's user-friendly and intuitive. Keep up the good work!",
+        "votes": 2
     }
 }
