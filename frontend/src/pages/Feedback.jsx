@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { submitData } from "../utils/submit";
 import styles from "./Feedback.module.css";
-import Dialog from "../components/dialog";
+import Dialog from "../components/Dialog";
 
 export default function FeedbackForm() {
     

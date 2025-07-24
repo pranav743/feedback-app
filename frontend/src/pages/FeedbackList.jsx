@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchFeedbacks, deleteFeedback, upvoteFeedback } from "../utils/submit";
-import Dialog from "../components/dialog";
+import Dialog from "../components/Dialog";
 import FeedbackCard from "../components/FeedbackCard";
 import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
