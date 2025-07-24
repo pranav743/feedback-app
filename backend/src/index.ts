@@ -5,7 +5,7 @@ import router from './router.js';
 import { requestLogger } from './middleware/requestLogger.js';
 import cors from 'cors';
 const PORT = process.env.PORT || 3000;
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:4173';
 const app = express();
 
 app.use(cors({
